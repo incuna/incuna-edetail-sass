@@ -1,0 +1,17 @@
+{
+    "name": "incuna-sass-edetail",
+    "version": "0.0.1",
+    "homepage": "https://github.com/incuna/incuna-sass-edetail",
+    "authors": [
+        "Roger Hutchings <roger@incuna.com>"
+    ],
+    "description": "Incuna's eDetail Sass Library",
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
