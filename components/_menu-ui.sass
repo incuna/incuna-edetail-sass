@@ -1,0 +1,105 @@
+footer
+    background: -webkit-linear-gradient(top, #434343 1%, #2d2d2d 1%, #2d2d2d 50%, black 50%, black 100%)
+    border-top: 1px solid black
+    bottom: 0
+    height: $footer-height
+    position: absolute
+    width: 100%
+    > div
+        @extend %flexbox
+        // @include justify-content(stretch)
+    #button-menu
+        @include flex(0, 0, auto)
+        &.show
+            #briefcase
+                display: block
+                z-index: 9500
+        .briefcase-button
+            box-sizing: border-box
+            background: image-url('non-retina/briefcase.png') center no-repeat
+            height: 50px
+            padding: 0 10px
+            position: relative
+            overflow: hidden
+            width: $briefcase-button-width
+        #briefcase
+            background: -webkit-gradient(linear, 0% 0%, 0% 1%, from(#aeb5b5), to(#dbdfe5))
+            border: 4px solid black
+                radius: 10px
+            bottom: 70px
+            display: none
+            font:
+                family: $font-footer
+                size: 14px
+            left: 12px
+            line-height: 1em
+            padding: 12px 8px 8px
+            position: absolute
+            text-align: left
+            width: 375px
+            z-index: -9999
+            -webkit-box-shadow: 5px 5px 5px rgba(black, 0.2)
+            ul
+                line-height: 1.3
+                list-style: none
+                margin: 0
+                padding: 0
+                .title
+                    margin-bottom: 10px
+                    .text
+                        font:
+                            size: 15px
+                            weight: bold
+                    > .text
+                        color: #4c566c
+                        font-size: 16px
+                        padding: 0 10px
+                    ul
+                        background: white
+                        border: 1px solid #c4c4c4
+                            radius: 10px
+                        list-style: none
+                        margin: 0
+                            top: 10px
+                        padding: 0
+                        -webkit-box-shadow: #f6f7f8 0 1px 1px 0
+                        li
+                            background: image-url('non-retina/arrow.png') no-repeat 97% center
+                            border-bottom: 1px solid #c4c4c4
+                            padding: 11px 45px 11px 15px
+                            &:last-child
+                                border: 0
+            .briefcase-list
+                // scroll
+                max-height: 630px
+                overflow: auto
+                -webkit-overflow-scrolling: touch
+            .arrow
+                $size: 17px
+                border:
+                    style: solid
+                    width: $size $size 0 $size
+                    color: black transparent transparent transparent
+                bottom: -20px
+                height: 0
+                left: 2px
+                position: absolute
+                width: 0
+    .footer-links
+        @extend %flexbox
+        @include flex(1, 0, auto)
+        @include align-items(center)
+        @include justify-content(center)
+        list-style: none
+        margin: 0
+            // centers items relative to viewport
+            left: -$briefcase-button-width
+        padding: 0
+        li
+            @include flex(0, 0, auto)
+
+        a
+            color: white
+            display: block
+            padding: 10px
+            text-decoration: none

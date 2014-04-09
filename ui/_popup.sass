@@ -1,0 +1,166 @@
+.popup
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 20
+    width: 100%
+    height: $app-height
+    font-family: Helvetica, sans-serif
+    &.popup-animated
+        -webkit:
+            animation: slide 300ms 1 ease-in-out
+            transform: translate(0, $app-height)
+            transition: -webkit-transform 300ms ease-in-out
+        &.show
+            -webkit-transform: translate(0, 0)
+    header
+        height: $popup-header-height
+        background: -webkit-linear-gradient(top, #5e5e5e 0%, #5e5e5e 50%, #363636 51%, #363636 100%)
+        text-align: center
+        color: #fff
+        box-shadow: 0 0 12px rgba(#000, 0.6)
+        h1
+            font:
+                weight: bold
+                size: 16px
+            margin: 0
+            line-height: 36px
+            color: #fff
+            text-shadow: 0 -1px 1px black
+        .button
+            cursor: pointer
+            border: 1px solid rgba(#000, 0.8)
+                bottom: 1px solid rgba(#fff, 0.3)
+                radius: 5px
+            padding: 5px 10px
+            font:
+                size: 12px
+                weight: bold
+            color: white
+            text-shadow: 0 -1px 1px black
+            -webkit-box-shadow: inset 0 0 1px 0 rgba(#000, 0.4)
+            line-height: 16px
+        #close, .close
+            position: absolute
+            top: 5px
+            left: 11px
+    article
+        position: relative
+        z-index: 1
+        width: auto
+        height: $popup-height
+        overflow: auto
+        -webkit-overflow-scrolling: touch
+        background: #E5E5E5
+        color: #333
+        .scroll
+            width: 100%
+            padding: 0 0 20px 0
+    .window-container
+        background-color: white
+        border: 1px solid #C4C4C4
+        border-radius: 10px
+        margin: 30px 100px 0
+        padding: 10px 30px
+        line-height: 1.4em
+
+    ol
+        list-style-type: decimal
+        margin: 20px 0 0 40px
+    #privacy
+        margin-top: 30px
+        width: 120px
+        a
+            background: image-url('non-retina/go_small.png') no-repeat right center
+            color: black
+            font-size: 10px
+            font-weight: bold
+            padding: 5px 30px 5px 0
+            text-decoration: none
+    #buttons
+        margin: 25px auto 0
+        width: 500px
+        .button
+            border: 1px solid #C4C4C4
+            border-radius: 7px
+            display: inline-block
+            font-size: 16px
+            padding: 6px 0
+            width: 215px
+            background: -webkit-gradient(linear, 0% 49%, 0% 50%, from(#77c067), to(#4aa03b))
+            color: white
+            font-weight: normal
+            text-align: center
+            text-decoration: none
+            &.disabled
+                background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(whiteSmoke), to(#d1d1d1))
+                color: #999
+                cursor: default
+    article
+        .video-js-box,
+        .audio-box
+            margin: 0 auto
+        #sketchpad
+            display: block
+            margin: 0 auto
+
+    .prescribing-information
+        -webkit-column-count: 2
+        -webkit-column-gap: 25px
+        text-align: justify
+
+        p
+            font-size: 11px
+            margin: 2px 0
+            line-height: 1.4em
+        strong
+            font-weight: bold
+        .notice
+            border: 1px solid #333
+            text-align: center
+            margin: 10px
+
+@-webkit-keyframes slide
+    0%
+        -webkit-transform: translate(0, $app-height)
+    100%
+        -webkit-transform: translate(0, 0)
+
+
+#template-movie.popup article
+    background: #000
+    .video-box-wrapper
+        position: relative
+        width: $app-width
+        height: $popup-height
+        display: table-cell
+        vertical-align: middle
+        text-align: center
+
+#template-audio.popup article
+    background: #000
+    .audio-box
+        position: relative
+        width: $app-width
+        height: $popup-height
+        .audio-player
+            display: block
+            position: absolute
+            top: 50%
+            left: 50%
+            -webkit-transform: translate(-50%, -50%)
+            img
+                max-width: $app-width
+            audio
+                width: 100%
+
+
+// Overrides for the phantomjs/qt headless webkit
+
+body.qt .popup
+    position: relative
+    min-height: $app-height
+    height: auto
+    article
+        min-height: 720px
+        height: auto

@@ -1,0 +1,38 @@
+.popup .references ul
+    list-style: none
+    margin: 10px 0 30px 0
+    padding: 0
+    li
+        $before-width: 25px
+        $before-height: 25px
+        $before-side-margin: 20px
+        $li-left-indent: ($before-side-margin * 2) + $before-width
+        &:not(.hasChildren)
+            border-bottom: 1px solid #e5e5e5
+            margin: 0 -30px
+            padding: 10px 20px 10px $li-left-indent
+            background: transparent image-url('non-retina/ref-notick.png') 30px center no-repeat
+            font-size: 16px
+            .title
+                display: block
+                margin: 0
+                    left: $li-left-indent
+        .before
+            margin: 0 $before-side-margin
+            height: $before-height
+            width: $before-width
+            max-width: $before-width
+            display: inline-block
+            float: left
+
+        &.selected:not(.hasChildren)
+            background: #e1f8dc image-url('non-retina/ref-tick.png') 28px center no-repeat
+            color: #060
+            border-color: #cadfc6
+        &.hasChildren
+            font-size: 18px
+            >
+                .title
+                    font-weight: bold
+                .before
+                    display: none

@@ -1,0 +1,265 @@
+#template-form article
+    background: #E5E5E5
+    form
+        padding-top: 25px
+
+.form-container
+    margin: 10px auto
+    width: 725px
+    .bid-discussion
+        // Fix orphans
+        padding-right: 30px
+
+.form-preview
+    margin: 20px auto
+    width: 695px
+    background-color: white
+    border: 1px solid #C4C4C4
+        radius: 10px
+    padding: 10px 15px
+    display: none
+    .form-preview-subject
+        font-weight: bold
+        border-bottom: 1px solid #C4C4C4
+        padding: 0
+            bottom: 10px
+        &:before
+            content: "Subject: "
+            font-weight: normal
+
+.bbf-field, .bbf-editor
+    overflow: auto
+
+.bbf-help
+    display: none
+
+fieldset
+    margin: 10px 0
+    padding: 0
+    border: 0
+    legend
+        font:
+            size: 16px
+            weight: bold
+        padding: 8px 0 12px 0
+    ul
+        background-color: white
+        border: 1px solid #c4c4c4
+            radius: 10px
+        list-style: none
+        margin: 0
+        padding: 0
+        li
+            border-bottom: 1px solid #c4c4c4
+            border-top: 1px solid white
+            min-height: 43px
+            padding: 0 15px
+            &:first-child
+                border-top: 0 none
+            &:last-child
+                border-bottom: 0 none
+            a
+                color: black
+                display: block
+                font-size: 14px
+                font-weight: bold
+                padding: 10px 15px
+                text-decoration: none
+                text-shadow: none
+                white-space: nowrap
+    label
+        color: #516691
+        float: left
+        font-size: 13px
+        font-weight: bold
+        margin-top: 12px
+        width: 220px
+        &[for="dateOfAwareness"]
+            padding-bottom: 16px
+    .error
+        font-size: 13px
+        color: red
+    input, textarea, .date_dropdowns
+        background: transparent
+        border: 0 none
+        float: right
+        font-size: 14px
+        font-weight: bold
+        margin: 0 0 0 20px
+        padding: 11px 0 15px 0
+        width: 445px
+        //z-index: 100;
+        -webkit-appearance: none
+        &[type="checkbox"]
+            -webkit-appearance: checkbox
+            margin-top: 15px
+    ul
+        &.bbf-radio,
+        &#informationRequested,
+        &#patientSupportMaterials
+            background: transparent
+            border: 0 none
+            float: right
+            font-size: 14px
+            font-weight: bold
+            margin: 0 0 0 20px
+            padding: 11px 0 15px 0
+            width: 445px
+            //z-index: 100;
+            -webkit-appearance: none
+    &#medical-liaison-manager
+        input, textarea
+            width: 460px
+    &#hdm-request
+        input, textarea
+            width: 460px
+    .bbf-fieldTextArea
+        min-height: 90px
+        textarea
+            height: 60px
+            resize: none
+
+.radioFieldset ul
+    background-color: transparent
+    border: 0
+    .bbf-radio
+        float: left
+        width: 690px
+        padding-top: 0
+
+// aware date (long label)
+
+fieldset
+    #aware-date
+        margin: 20px 0 25px
+    .date_dropdowns
+        padding-top: 11px
+        width: 300px
+
+.popup .form-container
+    h5
+        font-size: 16px
+        width: 725px
+        margin-left: auto
+        margin-right: auto
+    p
+        font-size: 13px
+        margin: 5px 0
+        margin: 0 auto
+        &.bold
+            font-weight: bold
+        &.blue
+            color: #516691
+        &.slim
+            line-height: 12px
+
+fieldset
+    legend, p
+        margin-right: 16px
+        margin-left: 16px
+
+ul.bbf-radio
+    background: none
+    border: 0
+    list-style: none
+    margin: 1em
+    padding: 0
+    li
+        display: inline-block
+        border: 0
+        padding: 0
+        margin: 0 -5px 0 0
+        min-height: 0
+        &:first-child label
+            border-radius: 10px 0 0 10px
+        &:last-child label
+            border-radius: 0 10px 10px 0
+    label
+        float: none
+        color: #676767
+        display: inline-block
+        font-size: 12px
+        margin: 0
+        position: relative
+        width: 135px
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(whiteSmoke), to(#d1d1d1))
+        border: 1px solid #CCC
+        padding: 7px 0
+        height: 100%
+        text-shadow: 0 1px 1px white
+        text-align: center
+        cursor: pointer
+    input[type="radio"]
+        display: none
+        &:checked + label
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0266bb), to(#0096cb))
+            border: 1px solid #4986D7
+            text-shadow: 0 -1px 2px #333333
+            color: #fff
+
+// References and Materials List
+.bbf-editorReferencesList,
+.bbf-editorMaterialsList
+    ul
+        border: 0 none
+        margin: 0 0 10px 0
+        li
+            &.hasChildren
+                &:not(:first-child)
+                    margin: 10px 0 0 0
+                > ul
+                    margin: 10px 0
+            &:not(.hasChildren)
+                background: image-url('non-retina/ref-selected.png') no-repeat 0 3px
+                border: 0 none
+                font-size: 12px
+                min-height: 0
+                padding: 8px 0 8px 27px
+            &.references-link,
+            &.materials-link
+                background: 0 none
+                padding: 3px 0 0 3px
+    a
+        background: image-url('non-retina/go_small.png') no-repeat right center
+        padding: 5px 30px 5px 0
+        font-size: 10px
+        width: 80px
+
+.bbf-editorMaterialsList
+    .quantity
+        &:before
+            content: ' x '
+
+
+.bbf-fieldTextArea label
+    width: 225px
+
+#yellow-box
+    background-color: #FFFFBF
+    margin: 15px auto 0 auto
+    padding: 7px 110px
+    width: 504px
+    text-align: center
+    p
+        font-size: 10px
+        font-weight: normal
+        line-height: 12px
+        margin: 0
+
+// the following is required for some project specific, but repeatedly used forms.
+
+li.bbf-fieldCheckbox
+    label
+        margin-bottom: 12px
+
+.bbf-editorCheckbox
+    input#consent
+        -webkit-appearance: checkbox
+        margin-top: 12px
+
+.mlm
+    .radioFieldset
+        ul
+            li
+                label[for=deliveryMethod]
+                    display: none
