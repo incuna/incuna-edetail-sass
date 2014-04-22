@@ -1,3 +1,7 @@
+# 0.0.4
+
+* Add missing _components.sass file
+
 # 0.0.3
 
 * Path import bug fixes
