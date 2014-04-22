@@ -1,0 +1,19 @@
+// Adds a watermark. Can be used per-slide, or on #application to target the
+// entire eDetail. Based on https://github.com/incuna/edetail-project/issues/87
+%watermark
+    &:after
+        @extend %flexbox
+        @include justify-content(center)
+        @include align-items(center)
+        content: 'unfinished'
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        font:
+            size: 150px
+            weight: bold
+        color: grey
+        -webkit-transform: rotate(-35deg)
+        opacity: 0.2

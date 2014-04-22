@@ -1,0 +1,54 @@
+article
+    .pullout
+        height: 520px
+        width: 930px
+        position: absolute
+        top: 15px
+        right: -935px
+        border-top-left-radius: 8px
+        border-bottom-left-radius: 8px
+        -webkit-box-shadow: 0 0 10px 5px rgba(#000, 0.25)
+        background-color: #fff
+        display: table
+        -webkit-transform: translate(0, 0)
+        -webkit-transition: -webkit-transform 500ms ease-in-out
+
+// styles to make the slides render when generating screen shots using phantomjs (and qt)
+
+.qt article .pullout
+    -webkit-box-shadow: 0 0 10px 1px rgba(#000, 0.25)
+
+article .pullout
+    > .content
+        padding: 20px 55px 15px 55px
+        vertical-align: middle
+        display: table-cell
+        line-height: 1.4em
+    &.small
+        top: 200px
+        width: 530px
+        right: -535px
+        height: 220px
+    &.out
+        -webkit-transform: translate(-100%, 0)
+    .tab
+        width: 47px
+        height: 90px
+        position: absolute
+        top: 230px
+        left: -47px
+        border-top-left-radius: 8px
+        border-bottom-left-radius: 8px
+        -webkit-box-shadow: -4px 0 6px 0 rgba(#000, 0.25)
+        cursor: pointer
+
+// styles to make the slides render when generating screen shots using phantomjs (and qt)
+
+.qt article .pullout .tab
+    -webkit-box-shadow: none
+    border: 1px solid rgba(#000, 0.25)
+    border-width: 1px 0 1px 1px
+
+article
+    .pullout.small .tab
+        top: 65px

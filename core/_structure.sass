@@ -1,0 +1,42 @@
+// Define overall presentation/layout styles
+body
+    margin: 0
+    padding: 0
+    background: #aaa
+    //sometimes fonts get extra "faux" bolding, the below property fixes this
+    -webkit-font-smoothing: antialiased
+    //css below prevents highlights on ipad when things are pressed
+    -webkit-user-select: none
+    -webkit-user-drag: none
+    -webkit-tap-highlight-color: rgba(#000, 0)
+
+// Styles required for the general eDetail sliding functionality and defining the
+// base widths and heights to start from
+#application
+    position: relative
+    background: $app-background
+    height: $app-height
+    width: $app-width
+    overflow: hidden
+
+#template-slides,
+#template-page,
+#template-home
+    height: $app-height
+    width: $app-width
+
+article.sheet
+    height: $app-height
+
+.slides
+    overflow: hidden
+    position: absolute
+    top: $slide-top
+    left: 0
+    height: $slide-height
+    width: $slide-width
+    padding:
+        top: $slide-pad-top
+        right: $slide-pad-right
+        bottom: $slide-pad-bottom
+        left: $slide-pad-left

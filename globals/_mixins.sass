@@ -1,0 +1,69 @@
+// Retina images mixin:
+//  Sets retina and non-retina image paths
+//
+// usage:
+//   .selector .example
+//      @include retina('graphs/01.png')
+//
+// customise the background-size:
+//   .selector .example
+//      @include retina('graphs/01.png', false)
+//      background-size: 100px 150px
+//
+// multiple background image support:
+//   .selector .example
+//      @include retina(('ui/background1.png','ui/background1.png'))
+
+@mixin retina($file-names, $autosize: true)
+    $background-image-urls: ''
+    $retina-background-image-urls: ''
+    $retina-background-image-sizes: ''
+    $i: 0
+
+    @each $file-path in $file-names
+        $i:$i+1
+        $full-path: image-url('non-retina/#{$file-path}')
+        $retina-full-path: image-url('retina/#{$file-path}')
+        $retina-image-size: image-width('non-retina/#{$file-path}') image-height('non-retina/#{$file-path}')
+        $background-image-urls: #{$background-image-urls}#{$full-path}
+        $retina-background-image-urls: #{$retina-background-image-urls}#{$retina-full-path}
+        $retina-background-image-sizes: #{$retina-background-image-sizes}#{$retina-image-size}
+        @if $i != length($file-names)
+            $background-image-urls: #{$background-image-urls}#{","}
+            $retina-background-image-urls: #{$retina-background-image-urls}#{","}
+            $retina-background-image-sizes: #{$retina-background-image-sizes}#{","}
+
+    background-image: #{$background-image-urls}
+    @if $autosize == true
+        background-size: $retina-background-image-sizes
+    @media (-webkit-min-device-pixel-ratio: 1.5)
+        background-image: #{$retina-background-image-urls}
+
+// Generic font face mixin.
+// ------------
+// Use this to import fonts from external files. Weight and style variations are
+//    assigned to the same font family using this mixin.
+//
+// Params:
+//    $fontname
+//        The name for the font face, used by CSS font family definitions
+//    $filename
+//        Path to the font file, relative to the project/media/fonts folder
+//    $weight
+//        Weight to assign the imported font file to. Usually numbers e.g.:
+//            200: light
+//            400: medium/normal
+//            700: Bold
+//    $style
+//        Font style to assign the imported font file to. Usually 'normal' or 'italic'
+
+@mixin font-face($fontname, $filepath, $weight: 400, $style: normal)
+    @font-face
+        font-family: '#{$fontname}'
+        src: url('../fonts/#{$filepath}')
+        font-weight: $weight
+        font-style: $style
+    // provide override families for QT
+    @font-face
+        font-family: '#{$fontname}-#{$weight}-#{$style}'
+        src: url('../fonts/#{$filepath}')

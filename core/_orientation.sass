@@ -1,0 +1,22 @@
+@media all and (orientation:landscape)
+    #orientation-landscape
+        display: block
+    #orientation-portrait
+        display: none
+
+@media all and (orientation:portrait)
+    body:not(.qt)
+        #orientation-landscape
+            display: none
+        #orientation-portrait
+            display: block
+
+#page-portrait
+    display: table
+    height: $app-width
+    width: $app-height
+    margin: auto
+    article
+        display: table-cell
+        vertical-align: middle
+        text-align: center

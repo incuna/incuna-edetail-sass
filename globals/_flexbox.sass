@@ -1,0 +1,165 @@
+// Flexbox Direction
+// Values: row | row-reverse | column | column-reverse
+// Browser default value: row
+
+@mixin flex-direction($value)
+    @if $value == "row"
+        -webkit-box-direction: normal
+        -webkit-box-orient: horizontal
+    @else if $value == "row-reverse"
+        -webkit-box-direction: reverse
+        -webkit-box-orient: horizontal
+    @else if $value == "column"
+        -webkit-box-direction: normal
+        -webkit-box-orient: vertical
+    @else if $value == "column-reverse"
+        -webkit-box-direction: reverse
+        -webkit-box-orient: vertical
+    @else
+        -webkit-box-direction: $value
+        -webkit-box-orient: $value
+
+    -webkit-flex-direction: $value
+    flex-direction: $value
+
+// Flexbox Wrap
+// Values: nowrap | wrap | wrap-reverse
+// Browser default value: nowrap
+
+@mixin flex-wrap($value)
+    // No Webkit Box fallback
+    -webkit-flex-wrap: $value
+    flex-wrap: $value
+
+// Flexbox Flow (shorthand)
+// Values: <flex-direction> | <flex-wrap>
+// Browser default value: row nowrap
+
+@mixin flex-flow($values)
+    -webkit-flex-flow: $values
+    flex-flow: $values
+
+// Flexbox Order
+// Browser default value: 0
+
+@mixin order($int)
+    -webkit-box-ordinal-group: $int+1
+    -webkit-order: $int
+    order: $int
+
+// Flexbox Grow
+// Browser default value: 0
+// iOS 5 & 6 default value: 0.0
+// See `flex()` comments for more information.
+
+@mixin flex-grow($int)
+    -webkit-box-flex: $int
+    -webkit-flex-grow: $int
+    flex-grow: $int
+
+// Flexbox Shrink
+// Browser default value: 1
+// iOS 5 & 6 default value: 0.0
+// See `flex()` comments for more information.
+
+@mixin flex-shrink($int)
+    -webkit-box-flex: $int
+    -webkit-flex-shrink: $int
+    flex-shrink: $int
+
+// Flexbox Basis
+// Values: Like "width"
+// Browser default value: auto
+
+@mixin flex-basis($value)
+    -webkit-flex-basis: $value
+    flex-basis: $value
+
+// Flexbox "Flex" (shorthand)
+// Values: <flex-grow> <flex-shrink> || <flex-basis>
+// Browser default value: 0 1 auto
+// iOS 5 & 6 default value: 0
+// For the old spec, 0 denotes inflexible (no grow, no shrink), > 0 denotes
+// flexible. If both <flex-grow> and <flex-grow> are 0, the element will become
+// inflexible for the old spec; otherwise it will be flexible.
+
+@mixin flex($fg, $fs, $fb: auto)
+    -webkit-box-flex: if($fg == 0 and $fs == 0, 0, 1)
+    -webkit-flex: $fg $fs $fb
+    flex: $fg $fs $fb
+
+// Flexbox Justify Content
+// Values: flex-start | flex-end | center | space-between | space-around
+// Browser default value: flex-start
+// (space-* values not supported in older syntaxes)
+
+@mixin justify-content($value)
+    @if $value == "flex-start"
+        -webkit-box-pack: start
+    @else if $value == "flex-end"
+        -webkit-box-pack: end
+    @else if $value == "space-between"
+        -webkit-box-pack: justify
+    @else if $value == "center"
+        -webkit-box-pack: center
+
+    -webkit-justify-content: $value
+    justify-content: $value
+
+// Flexbox Align Items
+// Values: flex-start | flex-end | center | baseline | stretch
+// Browser default value: stretch
+
+@mixin align-items($value)
+    @if $value == "flex-start"
+        -webkit-box-align: start
+    @else if $value == "flex-end"
+        -webkit-box-align: end
+    @else
+        -webkit-box-align: $value
+
+    -webkit-align-items: $value
+    align-items: $value
+
+// Flexbox Align Self
+// Values: auto | flex-start | flex-end | center | baseline | stretch
+// Browser default value: auto
+
+@mixin align-self($value)
+    // No Webkit Box Fallback
+    -webkit-align-self: $value
+    align-self: $value
+
+// Flexbox Align Content
+// Values: flex-start | flex-end | center | space-between | space-around | stretch
+// Browser default value: stretch
+
+@mixin align-content($value)
+    // No Webkit Box Fallback
+    -webkit-align-content: $value
+    align-content: $value
+
+// Flexbox Inits
+// display: flex | inline-flex
+
+%flex-defaults
+    > *
+        // By default, children of a flex container should be flexible. This
+        // happens naturally in the new spec (iOS 7) but not in the old spec
+        // (iOS 5 & 6), so set the old spec to be flexible here.
+        // The new spec allows children to shrink but not grow, which is
+        // impossible with the old spec so we make it consistent by making
+        // everything the same: fully flexible, grow and shrink.
+        @include flex(1, 1)
+
+%flexbox
+    @extend %flex-defaults
+    display: -webkit-box
+    display: -webkit-flex
+    display: flex
+
+%inline-flex
+    @extend %flex-defaults
+    display: -webkit-inline-box
+    display: -webkit-inline-flex
+    display: inline-flex
