@@ -1,3 +1,7 @@
+# 0.0.5
+
+* Remove unused $font-footer variable which was breaking the build
+
 # 0.0.4
 
 * Add missing _components.sass file
