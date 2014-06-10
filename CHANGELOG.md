@@ -1,3 +1,7 @@
+# 0.0.6
+
+* Add width value for flex mixin
+
 # 0.0.5
 
 * Remove unused $font-footer variable which was breaking the build
