@@ -1,3 +1,6 @@
+## 1.0.0
+* Change selector for new slides container (breaking change)
+
 ## 0.1.0
 * Return briefcase overlay styles that were missing.
 
