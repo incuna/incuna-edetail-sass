@@ -1,3 +1,7 @@
+## 2.0.0
+* Remove `article` from `ui/_flip.sass` for edetail library 1.x.x (breaking change)
+* Move height declaration onto `.swipeview-wrapper` so that slides aren't hidden by a zero-height ancestor with hidden overflow
+
 ## 1.0.0
 * Change selector for new slides container (breaking change)
 
