@@ -1,3 +1,9 @@
+@include keyframes(slide)
+    0%
+        @include transform(translate(0, $app-height))
+    100%
+        @include transform(translate(0, 0))
+
 .popup
     position: absolute
     top: 0
@@ -7,12 +13,11 @@
     height: $app-height
     font-family: Helvetica, sans-serif
     &.popup-animated
-        -webkit:
-            animation: slide 300ms 1 ease-in-out
-            transform: translate(0, $app-height)
-            transition: -webkit-transform 300ms ease-in-out
+        @include animation(slide 300ms 1 ease-in-out)
+        @include transform(translate(0, $app-height))
+        @include transition(transform 300ms ease-in-out)
         &.show
-            -webkit-transform: translate(0, 0)
+            @include transform(translate(0, 0))
     header
         height: $popup-header-height
         background: -webkit-linear-gradient(top, #5e5e5e 0%, #5e5e5e 50%, #363636 51%, #363636 100%)
@@ -119,12 +124,6 @@
             border: 1px solid #333
             text-align: center
             margin: 10px
-
-@-webkit-keyframes slide
-    0%
-        -webkit-transform: translate(0, $app-height)
-    100%
-        -webkit-transform: translate(0, 0)
 
 
 #template-movie.popup article
